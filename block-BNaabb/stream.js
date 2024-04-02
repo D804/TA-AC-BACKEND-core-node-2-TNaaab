@@ -6,10 +6,9 @@ function handleServer(req, res) {
     store = store + chunk;
   });
   req.on('end', () => {
-    console.log(store);
+    res.write(store);
+    res.end();
   });
-  res.write(store);
-  res.end();
 }
 server.listen(3456, () => {
   console.log('Listening on port 3456');
